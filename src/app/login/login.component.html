@@ -1,0 +1,51 @@
+<div class="login-container">
+  <div class="login-left">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h2>Log in</h2>
+
+      <input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        class="input"
+      />
+
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password"
+        formControlName="password"
+        class="input"
+      />
+
+      <div class="options">
+        <label>
+          <input type="checkbox" formControlName="rememberMe" />
+          Keep me logged in
+        </label>
+        <button type="button" class="eye-btn" (click)="togglePassword()">👁️</button>
+      </div>
+
+      <button type="submit" class="login-btn">Log In</button>
+
+      <div class="links">
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <footer>
+        <p>© Copy right 2024 | <a href="#">Privacy Statement</a></p>
+      </footer>
+    </form>
+  </div>
+
+  <div class="login-right">
+    <div class="signup-box">
+      <h2>Not a User Yet?</h2>
+      <p>
+        Sign up and experiment in our sandbox,<br />
+        then when you're ready for more,<br />
+        <a href="#">Contact Us.</a>
+      </p>
+      <button class="signup-btn">Sign Up</button>
+    </div>
+  </div>
+</div>
