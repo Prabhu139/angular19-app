@@ -23,10 +23,8 @@ export class LoginComponent {
   private router = inject(Router);
 
   // Validation patterns
-  private emailPattern =
-    /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-  private passwordPattern =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+  private emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+  private passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -42,14 +40,22 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (!this.loginForm.valid) {
-      alert('Please fill in all required fields correctly.');
+      alert(
+        'Please fill in all required fields correctly.\n\n' +
+        'Password must:\n' +
+        'Contains at least one lowercase letter (a-z).\n' +
+        'Contains at least one uppercase letter (A-Z).\n' +
+        'Contains at least one digit (0-9).\n' +
+        'Contains at least one special character (!@#$%^&*).\n' +
+        'Has at least 8 characters in total.'
+      );
       return;
     }
-
+  
     const formValue = this.loginForm.value;
-
-    // You can also use formValue.email & formValue.password for deeper logic
+  
     console.log('Login successful:', formValue);
     this.router.navigate(['/dashboard']);
   }
+  
 }

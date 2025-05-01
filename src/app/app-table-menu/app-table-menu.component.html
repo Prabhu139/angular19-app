@@ -1,0 +1,23 @@
+<h2>Column Settings</h2>
+
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  placeholder="Search..."
+  class="search-box"
+/>
+
+<div cdkDropList [cdkDropListData]="filteredColumns" (cdkDropListDropped)="drop($event)">
+  <div *ngFor="let col of filteredColumns; let i = index" cdkDrag>
+    <mat-checkbox
+      [checked]="isColumnVisible(col.name)"
+      (change)="toggleColumn(col.name)">
+      {{ col.label }}
+    </mat-checkbox>
+  </div>
+</div>
+
+<div class="actions">
+  <button mat-button (click)="cancel()" color="warn">Cancel</button>
+  <button mat-raised-button color="primary" (click)="close()" color="primary">Apply</button>
+</div>

@@ -7,7 +7,7 @@
   
 
   .login-left {
-    flex: 2;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +20,7 @@
       h2 {
         text-align: center;
         margin-bottom: 20px;
+        font-size: 40px;
       }
 
       .input {
@@ -30,6 +31,12 @@
         background-color: #2e3448;
         color: white;
       }
+
+      input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #2e3448 inset !important;
+        -webkit-text-fill-color: white !important;
+      }
+      
 
       .options {
         display: flex;
@@ -42,6 +49,7 @@
           border: none;
           cursor: pointer;
           color: white;
+          margin-top: -78px;
           font-size: 18px;
         }
       }
@@ -82,8 +90,8 @@
   }
 
   .login-right {
-    flex: 1;
-    background: url('/pexels-ian-panelo-6789779.jpg') center center / cover no-repeat;
+    flex: 0.8;
+    background: url('/login-bg-image.jpg') center center / cover no-repeat;
     position: relative;
     display: flex;
     align-items: center;

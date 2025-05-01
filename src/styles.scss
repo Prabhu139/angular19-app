@@ -9,3 +9,9 @@ body, html {
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+::ng-deep .column-dialog-panel {
+  position: absolute !important;
+  margin: 1 !important;
+}
